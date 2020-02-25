@@ -1,0 +1,27 @@
+<h1>BIBLIOTECAS</h1>
+<hr>
+
+<form class="form-inline my-10 my-lg-0 col-12">
+    <input class="form-control mr-sm-5 col-9" type="text" placeholder="Buscar libro" (keyup.enter)="buscarBiblioteca(buscarTexto.value)" #buscarTexto>
+    <button (click)="buscarBiblioteca(buscarTexto.value)" class="btn btn-outline-primary col-2" type="button">Buscar</button>
+</form>
+
+<br>
+
+<div class="card-columns">
+
+    <div class="card" *ngFor="let biblioteca of bibliotecas; let i = index">
+        <div class="menuBiblioteca">
+            <img class="card" [src]="biblioteca.img" alt="heroe.nombre">
+        </div>
+        <div class="card-block" style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">
+            <h4 class="card-title"> <i>{{ biblioteca.nombre| uppercase}}</i> </h4>
+            <hr>
+            <div class="limitar">
+                <p class="card-text"> {{ biblioteca.bio | truncate : 250 }} </p>
+            </div>
+            <br>
+            <button (click)="verBiblioteca(i)" type="button" class="btn btn-outline-primary btn-block"> Ver más...</button>
+        </div>
+    </div>
+</div>

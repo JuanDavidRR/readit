@@ -1,0 +1,26 @@
+<h1>Buscando: <small>{{ terminoAutor }}</small></h1>
+<hr>
+
+<div class="row animated fadeIn fast" *ngIf="autores.length == 0">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            No existen resultados con el término: {{ terminoAutor }}
+        </div>
+    </div>
+</div>
+
+<div class="card-columns">
+
+    <div class="card" *ngFor="let autor of autores; let idx">
+        <div class="menuLibros">
+            <img class="card" [src]="autor.img" alt="autor.nombre">
+        </div>
+
+        <div class="card-block">
+            <h4 class="card-title"> {{ autor.nombre}} </h4>
+            <p class="card-text"> {{ autor.bio | truncate : 250}}</p>
+            <p class="card-text"></p>
+            <button (click)="verAutor(autor.idx)" type="button" class="btn btn-outline-primary btn-block"> Ver más...</button>
+        </div>
+    </div>
+</div>

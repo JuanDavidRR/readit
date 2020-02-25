@@ -1,0 +1,27 @@
+<h1>LIBROS</h1>
+<hr>
+
+<form class="form-inline my-10 my-lg-0 col-12">
+    <input class="form-control mr-sm-5 col-9" type="text" placeholder="Buscar libro" (keyup.enter)="buscarLibro(buscarTexto.value)" #buscarTexto>
+    <button (click)="buscarLibro(buscarTexto.value)" class="btn btn-outline-primary col-2" type="button">Buscar</button>
+</form>
+
+<br>
+
+<div class="card-columns">
+
+    <div class="card" *ngFor="let libro of libros; let i = index">
+        <div class="menuLibros">
+            <img class="card" [src]="libro.img" alt="heroe.nombre">
+        </div>
+        <div class="card-block" style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">
+            <h4 class="card-title"> <i>{{ libro.nombre| uppercase}}</i> </h4>
+            <hr>
+            <div class="limitar">
+                <p class="card-text"> {{ libro.sinopsis | truncate : 250 }} </p>
+            </div>
+            <br>
+            <button (click)="verLibro(i)" type="button" class="btn btn-outline-primary btn-block"> Ver más...</button>
+        </div>
+    </div>
+</div>

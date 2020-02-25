@@ -1,0 +1,28 @@
+<h1>Buscando: <small>{{ termino }}</small></h1>
+<hr>
+
+
+<div class="row animated fadeIn fast" *ngIf="libros.length == 0">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            No existen resultados con el término: {{ termino }}
+        </div>
+    </div>
+</div>
+
+
+<div class="card-columns">
+
+    <div class="card" *ngFor="let libro of libros; let idx">
+        <div class="menuLibros">
+            <img class="card" [src]="libro.img" alt="libro.nombre">
+        </div>
+
+        <div class="card-block">
+            <h4 class="card-title"> {{ libro.nombre}} </h4>
+            <p class="card-text"> {{ libro.sinopsis | truncate : 250}}</p>
+            <p class="card-text"></p>
+            <button (click)="verLibro(libro.idx)" type="button" class="btn btn-outline-primary btn-block"> Ver más...</button>
+        </div>
+    </div>
+</div>

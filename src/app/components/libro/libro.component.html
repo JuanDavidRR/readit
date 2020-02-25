@@ -1,0 +1,53 @@
+<h1 class="animated fadeIn">
+    {{ libro.nombre | uppercase }}
+    <i><small>/ {{ libro.genero }}</small></i
+  >
+</h1>
+<hr />
+
+<div class="row animated fadeIn fast">
+  <div class="col-md-4 img-fluid">
+    <img [src]="libro.img" class="img-fluid" [alt]="libro.nombre" />
+    <br /><br />
+    <a [routerLink]="['/libros']" class="btn btn-outline-danger btn-block"
+      >Regresar</a
+    >
+    <button *ngIf="libro.autor == 'Dan Brown'" (click)="verLibro(0)" type="button" class="btn btn-outline-primary btn-block"> Visita al autor...</button>
+    <button *ngIf="libro.autor == 'John Katzenbach'" (click)="verLibro(1)" type="button" class="btn btn-outline-primary btn-block"> Visita al autor...</button>
+    <button *ngIf="libro.autor == 'Mario Mendoza'" (click)="verLibro(2)" type="button" class="btn btn-outline-primary btn-block"> Visita al autor...</button>
+    <button *ngIf="libro.autor == 'Paula Hawkins'" (click)="verLibro(3)" type="button" class="btn btn-outline-primary btn-block"> Visita al autor...</button>
+    <button *ngIf="libro.autor == 'Robert Kiyosaki'" (click)="verLibro(4)" type="button" class="btn btn-outline-primary btn-block"> Visita al autor...</button>
+    <button *ngIf="libro.autor == 'Stephen King'" (click)="verLibro(5)" type="button" class="btn btn-outline-primary btn-block"> Visita al autor...</button>
+  </div>
+  
+
+  <div class="col-md-8">
+    <h3>SINOPSIS</h3>
+    <p>
+      {{ libro.sinopsis }}
+    </p>
+    <hr />
+    <h3>Información del libro</h3>
+    <br>
+    <table class="tablas" border="1">
+      <tbody>
+        <tr>
+          <th>Nombre</th>
+          <td>{{ libro.nombre }}</td>
+        </tr>
+        <tr>
+          <th>Autor</th>
+          <td>{{ libro.autor }}</td>
+        </tr>
+        <tr>
+          <th>Año publicación</th>
+          <td>{{ libro.publicacion }}</td>
+        </tr>
+        <tr>
+          <th>Género</th>
+          <td>{{ libro.genero }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

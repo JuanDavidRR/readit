@@ -1,0 +1,47 @@
+<h1 class="animated fadeIn">
+    {{ biblioteca.nombre | uppercase }}
+    <i><small>/ {{ biblioteca.nacionalidad }}</small></i
+>
+</h1>
+<hr />
+
+<div class="row animated fadeIn fast">
+    <div class="col-md-4 img-fluid">
+        <img [src]="biblioteca.img" class="img-fluid" [alt]="biblioteca.nombre" />
+        <br /><br />
+        <a [routerLink]="['/autores']" class="btn btn-outline-danger btn-block">Regresar</a
+>
+        <a [routerLink]="['/autores']" class="btn btn-outline-danger btn-block">Visita su más grande libro</a
+>
+    </div>
+
+    <div class="col-md-8">
+        <h3>BIOGRAFÍA</h3>
+        <p>
+            {{ biblioteca.bio }}
+        </p>
+        <hr />
+        <h3>Información del libro</h3>
+        <br>
+        <table class="tablas" border="1">
+            <tbody>
+                <tr>
+                    <th>Nombre</th>
+                    <td>{{ biblioteca.nombre }}</td>
+                </tr>
+                <tr>
+                    <th>Libro Más Popular</th>
+                    <td>{{ biblioteca.libroPopular }}</td>
+                </tr>
+                <tr>
+                    <th>Nacimiento</th>
+                    <td>{{ biblioteca.nacimiento }}</td>
+                </tr>
+                <tr>
+                    <th>Nacionalidad</th>
+                    <td>{{ biblioteca.nacionalidad }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

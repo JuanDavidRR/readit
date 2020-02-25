@@ -1,0 +1,26 @@
+<h1>Buscando: <small>{{ terminoBiblioteca }}</small></h1>
+<hr>
+
+<div class="row animated fadeIn fast" *ngIf="bibliotecas.length == 0">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            No existen resultados con el término: {{ terminoBiblioteca }}
+        </div>
+    </div>
+</div>
+
+<div class="card-columns">
+
+    <div class="card" *ngFor="let autor of bibliotecas; let idx">
+        <div class="menuLibros">
+            <img class="card" [src]="autor.img" alt="autor.nombre">
+        </div>
+
+        <div class="card-block">
+            <h4 class="card-title"> {{ autor.nombre}} </h4>
+            <p class="card-text"> {{ autor.bio | truncate : 250}}</p>
+            <p class="card-text"></p>
+            <button (click)="verBiblioteca(autor.idx)" type="button" class="btn btn-outline-primary btn-block"> Ver más...</button>
+        </div>
+    </div>
+</div>
